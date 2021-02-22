@@ -36,7 +36,7 @@ namespace CustomListTest
             //Act
             collectionOfNumbers.Add(9);
             collectionOfNumbers.Add(number);
-            actual = collectionOfNumbers[1];
+            actual = collectionOfNumbers.GetIndex(1);
 
             //Assert
             Assert.AreEqual(expected, actual);

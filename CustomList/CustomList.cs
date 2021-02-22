@@ -20,6 +20,11 @@ namespace CustomList
             get { return count; }
         }
 
+        public T GetIndex(int x)
+        {
+            return _items[x];
+        }
+
 
 
         //Constructor
