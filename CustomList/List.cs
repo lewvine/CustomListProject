@@ -15,7 +15,7 @@ namespace CustomList
 
 
         //Member properties
-        public int Count
+        public int Count { get { count } }
         {
             get { count };
         }
