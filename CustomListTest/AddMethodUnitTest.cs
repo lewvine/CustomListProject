@@ -24,6 +24,7 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Add_Item_IsPlacedAtEndOfList()
         {
             //Arrange
@@ -41,6 +42,7 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Add_Item_Parameter_Different_DataType_As_List_CountNoChange()
         {
             //Arrange
@@ -50,13 +52,14 @@ namespace CustomListTest
             int actual;
 
             //Act
-            collectionOfNumbers.Add(notANumber);
+            //collectionOfNumbers.Add(notANumber);
             actual = collectionOfNumbers.Count;
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Add_Item_No_Parameters_CountNoChange()
         {
             //Arrange
@@ -66,13 +69,14 @@ namespace CustomListTest
             int actual;
 
             //Act
-            collectionOfNumbers.Add();
+            //collectionOfNumbers.Add();
             actual = collectionOfNumbers.Count;
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
         public void Add_Item_Too_Many_Parameters_CountNoChange()
         {
             //Arrange
@@ -82,7 +86,7 @@ namespace CustomListTest
             int actual;
 
             //Act
-            collectionOfNumbers.Add(5, 6);
+            //collectionOfNumbers.Add(5, 6);
             actual = collectionOfNumbers.Count;
 
             //Assert
