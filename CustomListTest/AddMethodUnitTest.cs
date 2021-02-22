@@ -92,5 +92,51 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Add_Item_Capacity4_Count4_Increases_Capacity()
+        {
+            //Arrange
+            CustomList<int> collectionOfNumbers = new CustomList<int>();
+            collectionOfNumbers.Add(0);
+            collectionOfNumbers.Add(1);
+            collectionOfNumbers.Add(2);
+            collectionOfNumbers.Add(3);
+            collectionOfNumbers.Add(4);
+
+            int expected = 8;
+            int actual;
+
+            //Act
+            //collectionOfNumbers.Add(5, 6);
+            actual = collectionOfNumbers.Capacity;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        //New array should have 0s in indices after 5.
+        public void Add_Item_Capacity4_Count4_Increases_Capacity_Item6is0()
+        {
+            //Arrange
+            CustomList<int> collectionOfNumbers = new CustomList<int>();
+            collectionOfNumbers.Add(0);
+            collectionOfNumbers.Add(1);
+            collectionOfNumbers.Add(2);
+            collectionOfNumbers.Add(3);
+            collectionOfNumbers.Add(4);
+
+            int expected = 0;
+            int actual;
+
+            //Act
+            //collectionOfNumbers.Add(5, 6);
+            actual = collectionOfNumbers.GetIndex(6);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

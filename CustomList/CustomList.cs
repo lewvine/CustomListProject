@@ -20,6 +20,11 @@ namespace CustomList
             get { return count; }
         }
 
+        public int Capacity
+        {
+            get { return capacity;  }
+        }
+
         public T GetIndex(int x)
         {
             return _items[x];
@@ -39,7 +44,7 @@ namespace CustomList
         //Member methods
         public void Add(T item)
         {
-            if(count <= capacity)
+            if(count < capacity)
             {
                 _items[count] = item;
                 count++;
@@ -52,6 +57,7 @@ namespace CustomList
                     newArray[i] = _items[i];
                 }
                 newArray[capacity + 1] = item;
+                _items = newArray;
                 capacity *= 2;
             }
         }
