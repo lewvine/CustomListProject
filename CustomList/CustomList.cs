@@ -25,13 +25,6 @@ namespace CustomList
         {
             get { return capacity; }
         }
-
-        public T[] Items
-        {
-            get { return _items; }
-        }
-
-
         public T this[int index]
         {
             get
@@ -83,7 +76,7 @@ namespace CustomList
             int j = 0;
             int counter = 0;
             for (int i = 0; i <= Count - 1; i++)
-            {
+            {  
                 if (_items[i].Equals(item) && counter == 0)
                 {
                     containsItem = true;
@@ -110,14 +103,13 @@ namespace CustomList
             string listToString = "[ ";
             for(int i = 0; i <= Count - 1; i++) 
             {
-                Convert.ToString(Items[i]);
                 if (i < Count -1)
                 {
-                    listToString += $"{Items[i]}, ";
+                    listToString += $"{_items[i]}, ";
                 }
                 else
                 {
-                    listToString += $"{Items[i]} ]";
+                    listToString += $"{_items[i]} ]";
 
                 }
             }

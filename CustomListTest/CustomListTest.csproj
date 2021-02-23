@@ -52,6 +52,7 @@
     <Compile Include="AddMethodUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveMethoUnitTest.cs" />
+    <Compile Include="ToStringOverrideUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

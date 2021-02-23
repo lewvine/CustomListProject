@@ -21,14 +21,12 @@ namespace CustomListTest
             //Before remove [1,5,3,5]
             //After remove [1,3,0,5]
 
-            
-            int[] arrayExpected = { 1, 5, 3, 0 };
-            string expected = arrayExpected.ToString();
+            string expected = "[ 1, 3 ]";
             string actual;
 
             //Act
             collectionOfNumbers.Remove(5);
-            actual = collectionOfNumbers.Items.ToString();
+            actual = collectionOfNumbers.ToString();
 
             //Assert
             Assert.AreEqual(expected, actual);
