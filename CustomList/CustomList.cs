@@ -44,7 +44,7 @@ namespace CustomList
         //Member methods
         public void Add(T item)
         {
-            if(count < capacity)
+            if (count < capacity)
             {
                 _items[count] = item;
                 count++;
@@ -52,7 +52,7 @@ namespace CustomList
             else
             {
                 T[] newArray = new T[capacity * 2];
-                for(int i = 0; _items.Length <= i; i++)
+                for (int i = 0; _items.Length <= i; i++)
                 {
                     newArray[i] = _items[i];
                 }
@@ -61,5 +61,6 @@ namespace CustomList
                 capacity *= 2;
             }
         }
+                
     }
 }

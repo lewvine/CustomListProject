@@ -47,7 +47,7 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<int> collectionOfNumbers = new CustomList<int>();
-            string notANumber = "this is not a number";
+            //string notANumber = "this is not a number";
             int expected = 0;
             int actual;
 
@@ -137,6 +137,7 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
-
+        //Add 5 things, test that 5th item is in 4th index
+        //Add 5 things, test that 2nd item is STILL in 1st index
     }
 }
