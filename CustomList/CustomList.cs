@@ -18,6 +18,7 @@ namespace CustomList
         public int Count
         {
             get { return count; }
+            set { count = value; }
         }
 
         public int Capacity
@@ -25,9 +26,22 @@ namespace CustomList
             get { return capacity;  }
         }
 
-        public T GetIndex(int x)
+        public T[] Items
         {
-            return _items[x];
+            get { return _items; }
+        }
+
+
+        public T this[int index]
+        {
+            get
+            {
+                return _items[index];
+            }
+            set
+            {
+                _items[index] = value;
+            }
         }
 
 
@@ -40,14 +54,13 @@ namespace CustomList
             _items = new T[capacity];
         }
 
-
         //Member methods
         public void Add(T item)
         {
             if (count < capacity)
             {
                 _items[count] = item;
-                count++;
+                Count++;
             }
             else
             {
@@ -61,6 +74,34 @@ namespace CustomList
                 capacity *= 2;
             }
         }
-                
+
+        //Member methods
+        public bool Remove(T item)
+        {
+            bool containsItem = false;
+            T[] newArray = new T[capacity];
+            int j = 0;
+            int counter = 0;
+            for (int i = 0; i <= Count - 1; i++)
+            {
+                if (_items[i].Equals(item) && counter == 0)
+                {
+                    containsItem = true;
+                    counter = 1;
+                    continue;
+                }
+                else
+                {
+                    newArray[j] = _items[i];
+                    j++;
+                }
+            }
+            _items = newArray;
+            if(containsItem == true)
+            {
+                Count--;
+            }
+            return containsItem;
+            }
+        }
     }
-}

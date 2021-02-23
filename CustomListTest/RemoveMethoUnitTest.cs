@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using CustomList;
 
 namespace CustomListTest
 {
@@ -7,17 +8,27 @@ namespace CustomListTest
     public class RemoveMethodUnitTest
     {
         [TestMethod]
-        public void Remove_Item_Method_Returns_Item()
+        public void Remove_Item_Method_Removes_Only_First_Instance()
         {
             //Arrange
             CustomList<int> collectionOfNumbers = new CustomList<int>();
+            collectionOfNumbers.Add(1);
             collectionOfNumbers.Add(5);
-            collectionOfNumbers.Add(9);
-            int expected = 9;
-            int actual;
+            collectionOfNumbers.Add(3);
+            collectionOfNumbers.Add(5);
+            collectionOfNumbers.Remove(5);
+
+            //Before remove [1,5,3,5]
+            //After remove [1,3,0,5]
+
+            
+            int[] arrayExpected = { 1, 5, 3, 0 };
+            string expected = arrayExpected.ToString();
+            string actual;
 
             //Act
-            actual = collectionOfNumbers.Remove(9);
+            collectionOfNumbers.Remove(5);
+            actual = collectionOfNumbers.Items.ToString();
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -78,6 +89,25 @@ namespace CustomListTest
 
             //Act
             actual = collectionOfNumbers.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Remove_Item_Method_Returns_False_If_Parameter_Not_In_List()
+        {
+            //Arrange
+            CustomList<int> collectionOfNumbers = new CustomList<int>();
+            collectionOfNumbers.Add(4);
+            collectionOfNumbers.Add(5);
+            collectionOfNumbers.Add(6);
+
+            bool expected = false;
+            bool actual;
+
+            //Act
+            actual = collectionOfNumbers.Remove(9);
 
             //Assert
             Assert.AreEqual(expected, actual);
