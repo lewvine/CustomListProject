@@ -16,6 +16,10 @@ namespace CustomList
             list.Add(9);
             list.Add(5);
             list.Remove(5);
+
+            string listTo = list.ToString();
+            Console.WriteLine(listTo);
+            Console.ReadLine();
             
         }
     }

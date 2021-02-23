@@ -23,7 +23,7 @@ namespace CustomList
 
         public int Capacity
         {
-            get { return capacity;  }
+            get { return capacity; }
         }
 
         public T[] Items
@@ -97,11 +97,31 @@ namespace CustomList
                 }
             }
             _items = newArray;
-            if(containsItem == true)
+            if (containsItem == true)
             {
                 Count--;
             }
             return containsItem;
+        }
+    
+
+        public override string ToString()
+        {
+            string listToString = "[ ";
+            for(int i = 0; i <= Count - 1; i++) 
+            {
+                Convert.ToString(Items[i]);
+                if (i < Count -1)
+                {
+                    listToString += $"{Items[i]}, ";
+                }
+                else
+                {
+                    listToString += $"{Items[i]} ]";
+
+                }
             }
+            return listToString;
         }
     }
+}
