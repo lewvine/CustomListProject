@@ -10,15 +10,28 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> list = new CustomList<int>();
-            list.Add(3);
-            list.Add(5);
-            list.Add(9);
-            list.Add(5);
-            list.Remove(5);
+            CustomList<int> a = new CustomList<int>();
+            CustomList<int> b = new CustomList<int>();
+            CustomList<int> c = new CustomList<int>();
 
-            string listTo = list.ToString();
-            Console.WriteLine(listTo);
+            a.Add(1);
+            a.Add(2);
+            a.Add(1);
+            a.Add(2);
+
+            b.Add(3);
+            b.Add(4);
+
+            b.Add(3);
+            b.Add(4);
+
+            b.Add(3);
+            b.Add(4);
+
+            c = a + b;
+            Console.WriteLine("This is A:" + a);
+            Console.WriteLine("This is B:" + b);
+            Console.WriteLine("This is C:" + c);
             Console.ReadLine();
             
         }

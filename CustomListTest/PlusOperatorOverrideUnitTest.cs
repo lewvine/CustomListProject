@@ -28,7 +28,7 @@ namespace CustomListTest
             actual = result.ToString();
 
             //Assert
-            Assert.Equals(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace CustomListTest
             actual = resultString.Length;
 
             //Assert
-            Assert.Equals(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace CustomListTest
             actual = result.ToString();
 
             //Assert
-            Assert.Equals(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -86,38 +86,15 @@ namespace CustomListTest
             two.Add(4);
             two.Add(5);
             two.Add(6);
-
-            string expected = "[ 1, 2, 3, 4, 5, 6 ]";
+            string oneStr = one.ToString();
+            string twoStr = two.ToString();
+            string expected = "[ 1, 2, 3 ][ 4, 5, 6 ]";
             string actual;
             //Act
-            actual = one.ToString() + two.ToString();
-
-
-            //Assert
-            Assert.Equals(actual, expected);
-        }
-
-        [TestMethod]
-        public void Plus_Operator_Returns_Same_String_As_ToString_Each_Separate_List()
-        {
-            //Arrange
-            CustomList<int> one = new CustomList<int>();
-            CustomList<int> two = new CustomList<int>();
-            one.Add(1);
-            one.Add(2);
-            one.Add(3);
-            two.Add(4);
-            two.Add(5);
-            two.Add(6);
-
-            string expected = "[ 1, 2, 3, 4, 5, 6 ]";
-            string actual;
-            //Act
-            actual = one.ToString() + two.ToString();
-
+            actual = oneStr + twoStr;
 
             //Assert
-            Assert.Equals(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -126,7 +103,7 @@ namespace CustomListTest
             //Arrange
             CustomList<string> one = new CustomList<string>();
             CustomList<string> two = new CustomList<string>();
-            CustomList<string> result = new CustomList<string();
+            CustomList<string> result = new CustomList<string>();
             one.Add("one");
             one.Add("two");
             one.Add("three");
@@ -141,7 +118,7 @@ namespace CustomListTest
             actual = result.ToString();
 
             //Assert
-            Assert.Equals(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

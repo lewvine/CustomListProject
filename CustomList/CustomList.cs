@@ -58,13 +58,17 @@ namespace CustomList
             else
             {
                 T[] newArray = new T[capacity * 2];
-                for (int i = 0; _items.Length <= i; i++)
+                int j = 0;
+                for (int i = 0; i <= _items.Length - 1; i++)
                 {
                     newArray[i] = _items[i];
+                    j = i;
                 }
-                newArray[capacity + 1] = item;
+                newArray[capacity] = item;
                 _items = newArray;
+                j += 2;
                 capacity *= 2;
+                count = j;
             }
         }
 
@@ -100,20 +104,50 @@ namespace CustomList
 
         public override string ToString()
         {
-            string listToString = "[ ";
+            string listToString = "[";
             for(int i = 0; i <= Count - 1; i++) 
             {
                 if (i < Count -1)
                 {
-                    listToString += $"{_items[i]}, ";
+                    listToString += $" {_items[i]},";
                 }
                 else
                 {
-                    listToString += $"{_items[i]} ]";
+                    listToString += $" {_items[i]} ";
 
                 }
             }
+            listToString += "]";
+
             return listToString;
+        }
+
+        public static CustomList<T> operator+ (CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> c = new CustomList<T>();
+            int counter = a.Count + b.Count - 1;
+            int j = 0;
+            for(int i = 0; i <= counter; i++)
+            {
+                if(i < a.Count)
+                {
+                    c.Add(a[i]);
+                }
+                else
+                {
+                    c.Add(b[j]);
+                    j++;
+                }
+            }
+            //foreach(T item in a._items)
+            //{
+            //    c.Add(item);
+            //}
+            //foreach(T item in b._items)
+            //{
+            //    c.Add(item);
+            //}
+            return c;
         }
     }
 }
