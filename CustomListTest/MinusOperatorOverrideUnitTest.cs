@@ -88,7 +88,7 @@ namespace CustomListTest
             one.Add(3);
             two.Add(1);
 
-            string expected = "[ 1 ]";
+            string expected = "[ 1, 3 ]";
             string actual;
             //Act
             result = one - two;
@@ -110,7 +110,7 @@ namespace CustomListTest
             one.Add("three");
             two.Add("one");
 
-            string expected = "[ two ]";
+            string expected = "[ two, three ]";
             string actual;
             //Act
             result = one - two;

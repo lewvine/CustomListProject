@@ -139,15 +139,22 @@ namespace CustomList
                     j++;
                 }
             }
-            //foreach(T item in a._items)
-            //{
-            //    c.Add(item);
-            //}
-            //foreach(T item in b._items)
-            //{
-            //    c.Add(item);
-            //}
             return c;
+        }
+
+        public static CustomList<T> operator-(CustomList<T> a, CustomList<T> b)
+        {
+            for(int i = 0; i < a.count; i++)
+            {
+                foreach(T item in b._items)
+                {
+                    if(a._items[i].Equals(item))
+                    {
+                        a.Remove(item);
+                    }
+                }
+            }
+            return a;
         }
     }
 }

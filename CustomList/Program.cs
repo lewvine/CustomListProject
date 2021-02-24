@@ -10,28 +10,25 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> a = new CustomList<int>();
-            CustomList<int> b = new CustomList<int>();
-            CustomList<int> c = new CustomList<int>();
+            //Arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result = new CustomList<string>();
+            one.Add("one");
+            one.Add("two");
+            one.Add("three");
+            two.Add("one");
 
-            a.Add(1);
-            a.Add(2);
-            a.Add(1);
-            a.Add(2);
+            string expected = "[ two ]";
+            string actual;
+            //Act
+            result = one - two;
+            actual = result.ToString();
 
-            b.Add(3);
-            b.Add(4);
-
-            b.Add(3);
-            b.Add(4);
-
-            b.Add(3);
-            b.Add(4);
-
-            c = a + b;
-            Console.WriteLine("This is A:" + a);
-            Console.WriteLine("This is B:" + b);
-            Console.WriteLine("This is C:" + c);
+            //Assert
+            Console.WriteLine("This is One:" + one);
+            Console.WriteLine("This is Two:" + two);
+            Console.WriteLine("This is Result:" + result);
             Console.ReadLine();
             
         }
