@@ -17,13 +17,9 @@ namespace CustomList
             one.Add("one");
             one.Add("two");
             one.Add("three");
-            two.Add("one");
+            two.Add("ten");
 
-            string expected = "[ two ]";
-            string actual;
-            //Act
-            result = one - two;
-            actual = result.ToString();
+            result = one.Zip(two);
 
             //Assert
             Console.WriteLine("This is One:" + one);

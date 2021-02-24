@@ -156,5 +156,45 @@ namespace CustomList
             }
             return a;
         }
+
+        public CustomList<T> Zip(CustomList<T> b)
+        {
+            CustomList<T> a = new CustomList<T>();
+            a.capacity = this.capacity + this.capacity;
+            int totalCount = this.count + b.count;
+            a._items = new T[capacity];
+
+            //Do code
+            //Create variable alternating between a & b
+            string listTurn = "this";
+            int thisCounter = 0;
+            int bCounter = 0;
+            while (thisCounter + bCounter < totalCount)
+            {
+                if (listTurn == "this" && this[thisCounter] != null)
+                {
+                    a.Add(this[thisCounter]);
+                    thisCounter++;
+                }
+                else if (listTurn == "b" && b[bCounter] != null)
+                {
+                    a.Add(b[bCounter]);
+                    bCounter++;
+                }
+                if(listTurn == "this")
+                {
+                    listTurn = "b";
+                }
+                else
+                {
+                    listTurn = "this";
+                }
+            }
+            //Take one item from a and add it to this._items;
+            //Take one item from b and add it to this._items;
+            //Come back to original list and repeat.
+
+            return a;
+        }
     }
 }
