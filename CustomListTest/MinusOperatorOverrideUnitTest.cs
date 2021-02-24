@@ -21,7 +21,7 @@ namespace CustomListTest
             two.Add(5);
             two.Add(6);
 
-            string expected = "[ 1, 2, 3, 4, 5, 6 ]";
+            string expected = "[ 1, 2, 3 ]";
             string actual;
             //Act
             result = one - two;
@@ -42,7 +42,7 @@ namespace CustomListTest
             one.Add(2);
             one.Add(3);
 
-            string expected = "[ 1, 2, 3, 4, 5, 6 ]";
+            string expected = "[ 1, 2, 3 ]";
             string actual;
             //Act
             result = one - two;
@@ -98,5 +98,26 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Minus_Operator_Works_With_Strings()
+        {
+            //Arrange
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+            CustomList<string> result = new CustomList<string>();
+            one.Add("one");
+            one.Add("two");
+            one.Add("three");
+            two.Add("one");
+
+            string expected = "[ two ]";
+            string actual;
+            //Act
+            result = one - two;
+            actual = result.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
