@@ -54,6 +54,7 @@
     <Compile Include="RemoveMethoUnitTest.cs" />
     <Compile Include="ToStringOverrideUnitTest.cs" />
     <Compile Include="PlusOperatorOverrideUnitTest.cs" />
+    <Compile Include="MinusOperatorOverrideUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
