@@ -1,0 +1,37 @@
+As a developer, I want to write documentation in a .txt file that describes the details and
+functionality of my – operator overload. I want to include details such as “syntax”, “parameters”,
+“return type”, and an example of it being used, with the output
+
+CustomList<T> - operator
+
+Subtracts the elements from "list a" that are found in "list b" using the following format:
+list a - list b.
+
+
+
+Parameters
+CustomList a, CustomList b
+Uses two CustomList objects as parameters.
+
+Returns:
+CustomList a
+Returns an updated "list a" with the specified elements removed. 
+
+Example:
+	CustomList<string> a = new CustomList<int>(){ 1, 2, 3, 4, 5}
+	CustomList<string> b = new CustomList<int>(){ 2, 3, 4, 4 } 
+
+	//Actual implementation of -operator
+            for(int i = 0; i < a.count; i++)
+            {
+                foreach(T item in b._items)
+                {
+                    if(a._items[i].Equals(item))
+                    {
+                        a.Remove(item);
+                    }
+                }
+            }
+            return a;
+
+	a._items = [ 1, 5 ];
