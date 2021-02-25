@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
 
         //Member variables AKA fields
@@ -157,6 +157,15 @@ namespace CustomList
             return a;
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            for (int index = 0; index < _items.Length; index++)
+            {
+                yield return _items[index];
+            }
+            yield return _items[-1];
+        }
+
         public CustomList<T> Zip(CustomList<T> b)
         {
             CustomList<T> a = new CustomList<T>();
@@ -181,7 +190,7 @@ namespace CustomList
                     a.Add(b[bCounter]);
                     bCounter++;
                 }
-                if(listTurn == "this")
+                if (listTurn == "this")
                 {
                     listTurn = "b";
                 }
@@ -190,10 +199,6 @@ namespace CustomList
                     listTurn = "this";
                 }
             }
-            //Take one item from a and add it to this._items;
-            //Take one item from b and add it to this._items;
-            //Come back to original list and repeat.
-
             return a;
         }
     }

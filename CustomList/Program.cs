@@ -12,19 +12,19 @@ namespace CustomList
         {
             //Arrange
             CustomList<string> one = new CustomList<string>();
-            CustomList<string> two = new CustomList<string>();
-            CustomList<string> result = new CustomList<string>();
             one.Add("one");
             one.Add("two");
             one.Add("three");
-            two.Add("ten");
+            one.Add("ten");
 
-            result = one.Zip(two);
+            foreach(string item in one)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
 
             //Assert
             Console.WriteLine("This is One:" + one);
-            Console.WriteLine("This is Two:" + two);
-            Console.WriteLine("This is Result:" + result);
             Console.ReadLine();
             
         }
