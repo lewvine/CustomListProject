@@ -29,6 +29,7 @@ namespace CustomList
         {
             get
             {
+
                 return _items[index];
             }
             set
@@ -163,11 +164,11 @@ namespace CustomList
             {
                 yield return _items[index];
             }
-            yield return _items[-1];
         }
 
         public CustomList<T> Zip(CustomList<T> b)
         {
+
             CustomList<T> a = new CustomList<T>();
             a.capacity = this.capacity + this.capacity;
             int totalCount = this.count + b.count;
