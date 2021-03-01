@@ -15,17 +15,14 @@ namespace CustomList
             one.Add("one");
             one.Add("two");
             one.Add("three");
-            one.Add("ten");
+            one.Add("two");
+            one.Add("three");
+            one.Add("two");
+            one.Add("two");
 
-            foreach(string item in one)
-            {
-                Console.WriteLine(item);
-            }
-            Console.ReadLine();
+            one.Sort();
 
-            //Assert
-            Console.WriteLine("This is One:" + one);
-            Console.ReadLine();
+
             
         }
     }

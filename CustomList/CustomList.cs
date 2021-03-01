@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> : IEnumerable
+    public class CustomList<T> where T: IEnumerable, IComparable
     {
 
         //Member variables AKA fields
@@ -100,7 +100,55 @@ namespace CustomList
             }
             return containsItem;
         }
-    
+
+        public void Sort()
+
+        {
+            CustomList<T> sortedList = new CustomList<T>();
+            sortedList.count = count;
+            sortedList.capacity = capacity;
+            T[] sortedArray = new T[capacity];
+
+            //Will go through each index and add a value to the new array.
+            for (int i = 0; i <= count; i++)
+            {
+                T currentValue = _items[0];
+                //This for loop selects the object being compared.
+                for (int j = 0; j <= count; j++)
+                {
+                    T comparedValue = _items[j];
+                    int answer = currentValue.CompareTo(comparedValue);
+                    //answer returns -1 when current value is lower.
+                    if (answer == -1 || answer == 0 || comparedValue == null)
+                    {
+                        continue;
+                    }
+                    else if (answer == 1)
+                    {
+                        currentValue = comparedValue;
+                    }
+
+                }
+                sortedArray[i] = currentValue;
+                this.Remove(currentValue);
+
+            }
+            this.count = sortedList.Count;
+            this.capacity = sortedList.Capacity;
+            this._items = sortedArray;
+            foreach(T item in _items)
+            {
+                Console.WriteLine(item);
+
+            }
+            Console.WriteLine($"Count: {count}");
+            Console.WriteLine($"Capacity: {capacity}");
+
+            Console.ReadLine();
+        }
+
+
+
 
         public override string ToString()
         {
@@ -200,6 +248,16 @@ namespace CustomList
                 }
             }
             return a;
+        }
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CompareTo(T other)
+        {
+            throw new NotImplementedException();
         }
     }
 }
