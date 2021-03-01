@@ -30,7 +30,7 @@ namespace CustomList
             {
                 if(index > _items.Length - 1)
                 {
-                    Console.WriteLine("Sorry, the index is not present.");
+                    throw new IndexOutOfRangeException("Sorry the index is out of range");
                 }
                 else
                 {
