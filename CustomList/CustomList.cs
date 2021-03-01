@@ -28,16 +28,16 @@ namespace CustomList
         {
             get
             {
-
-                return _items[index];
-            }
-            set
-            {
-                _items[index] = value;
+                if(index > _items.Length - 1)
+                {
+                    Console.WriteLine("Sorry, the index is not present.");
+                }
+                else
+                {
+                    return _items[index];
+                }       
             }
         }
-
-
 
         //Constructor
         public CustomList()
