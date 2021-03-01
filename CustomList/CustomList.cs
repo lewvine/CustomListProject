@@ -18,7 +18,6 @@ namespace CustomList
         public int Count
         {
             get { return count; }
-            set { count = value; }
         }
 
         public int Capacity
@@ -54,7 +53,7 @@ namespace CustomList
             if (count < capacity)
             {
                 _items[count] = item;
-                Count++;
+                count++;
             }
             else
             {
@@ -97,7 +96,7 @@ namespace CustomList
             _items = newArray;
             if (containsItem == true)
             {
-                Count--;
+                count--;
             }
             return containsItem;
         }
@@ -108,7 +107,7 @@ namespace CustomList
             string listToString = "[";
             for(int i = 0; i <= Count - 1; i++) 
             {
-                if (i < Count -1)
+                if (i < count -1)
                 {
                     listToString += $" {_items[i]},";
                 }
@@ -126,11 +125,11 @@ namespace CustomList
         public static CustomList<T> operator+ (CustomList<T> a, CustomList<T> b)
         {
             CustomList<T> c = new CustomList<T>();
-            int counter = a.Count + b.Count - 1;
+            int counter = a.count + b.count - 1;
             int j = 0;
             for(int i = 0; i <= counter; i++)
             {
-                if(i < a.Count)
+                if(i < a.count)
                 {
                     c.Add(a[i]);
                 }
